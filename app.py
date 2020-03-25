@@ -19,7 +19,7 @@ def create_app(test_config=None):
 
     @app.route('/database')
     def database():
-        return app.config.get('SQLALCHEMY_DATABASE_URI')
+        return app.config.get('SQLALCHEMY_DATABASE_URI', "nothing")
 
     @app.after_request
     def after_request(response):
@@ -33,9 +33,8 @@ def create_app(test_config=None):
         )
         return response
 
-    # @app.route('/artists')
-    # @requires_auth('view:artists')
     @app.route('/artists')
+    @requires_auth('view:artists')
     def get_artists():
         artists = [artist.attributes() for artist in Artist.query.order_by(Artist.id).all()]
         return jsonify({
@@ -45,9 +44,8 @@ def create_app(test_config=None):
             "artists": artists
         })    
 
-    # @app.route('/songs')
-    # @requires_auth('view:songs')
     @app.route('/songs')
+    @requires_auth('view:songs')
     def get_songs():
         songs = [song.attributes() for song in Song.query.order_by(Song.id).all()]
 
@@ -105,9 +103,8 @@ def create_app(test_config=None):
             "artist": new_artist.attributes()
         })
 
-    # @app.route('/songs', methods=['POST'])
-    # @requires_auth(permission='add:songs')
     @app.route('/songs', methods=['POST'])
+    @requires_auth(permission='add:songs')
     def post_songs():
 
         title = request.json.get("title", None)
