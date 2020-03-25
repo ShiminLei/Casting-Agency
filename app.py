@@ -41,8 +41,9 @@ def create_app(test_config=None):
             "artists": artists
         })    
 
+    # @app.route('/songs')
+    # @requires_auth('view:songs')
     @app.route('/songs')
-    @requires_auth('view:songs')
     def get_songs():
         songs = [song.attributes() for song in Song.query.order_by(Song.id).all()]
 
@@ -100,8 +101,9 @@ def create_app(test_config=None):
             "artist": new_artist.attributes()
         })
 
+    # @app.route('/songs', methods=['POST'])
+    # @requires_auth(permission='add:songs')
     @app.route('/songs', methods=['POST'])
-    @requires_auth(permission='add:songs')
     def post_songs():
 
         title = request.json.get("title", None)
