@@ -19,7 +19,7 @@ def create_app(test_config=None):
 
     @app.route('/database')
     def database():
-        return app.config.get('SQLALCHEMY_DATABASE_URI', "nothing")
+        return app.config.get('SQLALCHEMY_DATABASE_URI')
 
     @app.after_request
     def after_request(response):
