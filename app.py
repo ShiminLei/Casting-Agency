@@ -15,8 +15,8 @@ def create_app(test_config=None):
     @app.route('/')
     def index():
         return "This is the demo page of Casting Agency." \
-            " Feel free to try each endpoint with different roles." + app.config.get('SQLALCHEMY_DATABASE_URI')
-
+            " Feel free to try each endpoint with different roles."
+            
     @app.route('/database')
     def index():
         return app.config.get('SQLALCHEMY_DATABASE_URI',"nothing")
