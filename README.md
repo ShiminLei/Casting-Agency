@@ -77,14 +77,9 @@ Setting the `FLASK_ENV` variable to `development` will detect file changes and r
     - `view:movies`
 6. Create new roles for:
     - Casting Assistant
-        - Can view actors and movies`
-    - Casting Director
-        - All permissions a Casting Assistant has and ...
-        - Add or delete an actor from the database 
-        - Modify actors or movies
-    - Executive Producer
-        - All permissions a Casting Director has and ...
-        - Add or delete a movie from the database
+        - Can view actors and movies
+    - Casting Manager
+        - All permissions 
 7. Test your endpoints with [Postman](https://getpostman.com). 
     - Register 3 users - assign the Casting Assistant role to one    and Casting Director role to another, and Executive Producer   to the other.
     - Sign into each account and make note of the JWT.
@@ -92,24 +87,19 @@ Setting the `FLASK_ENV` variable to `development` will detect file changes and r
 
 ## Demo Page  
 
-https://casting-agency-fullstack.herokuapp.com/
+https://casting-agency-capstone-shimin.herokuapp.com/
 
 Test each endpoint with the link above ,and different role's Jwts. 
 JWTs for different role can be accessed by login to the link with username and password provided as follows.
-https://cheermoon.auth0.com/authorize?audience=castingagency&response_type=token&client_id=0AclWPWFwUn1rZ0uq22UKyol5CV01GSN&redirect_uri=http://localhost:8100/ 
-https://{{YOUR_DOMAIN}}/authorize?audience={{API_IDENTIFIER}}&response_type=token&client_id={{YOUR_CLIENT_ID}}&redirect_uri={{YOUR_CALLBACK_URI}}
 https://shiminlei.auth0.com/authorize?audience=castingAgency&response_type=token&client_id=E3HWwWbxrsO0CZ7ENyvQV84UyU9pm8Jd&redirect_uri=http://localhost:8100/
+
 ```
 - Casting Assistant
-    - UserName: casting_assistant@test.com
+    - UserName: assistant@castingagency.com
     - Password: Udacity!@# 
-- Casting Director
-    - UserName: casting_director@test.com
+- Casting Manager
+    - UserName: manager@castingagency.com
     - Password: Udacity!@# 
-- Executive Producer
-    - UserName: executive_producer@test.com
-    - Password: Udacity!@# 
-    - JWT: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlJUVkJOREV5T0RNMk1USXlNRE0wT1VJd1JFUXlOakF3TmpVd01qWTBRalF6UTBORE0wVkJPUSJ9.eyJpc3MiOiJodHRwczovL2NoZWVybW9vbi5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWRlNWFjMmIyY2UwYjcwZDJhOTQ1NzhjIiwiYXVkIjoiY2FzdGluZ2FnZW5jeSIsImlhdCI6MTU4NTEwNTM0NCwiZXhwIjoxNTg1MTc3MzQ0LCJhenAiOiIwQWNsV1BXRndVbjFyWjB1cTIyVUt5b2w1Q1YwMUdTTiIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiYWRkOmFjdG9ycyIsImFkZDptb3ZpZXMiLCJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImVkaXQ6YWN0b3JzIiwiZWRpdDptb3ZpZXMiLCJ2aWV3OmFjdG9ycyIsInZpZXc6bW92aWVzIl19.k2Rohm4Iurkq6K4muOEuiywJR-gwQ_FFXiPZcscjyJF2lxDymlMjmMzP7HK6Pn-F7q8ugn1r2A4W10fuk7YYmPh8xQCFZN-5EXWiICl3ErxcxayPPcYhP6jNXMqxHQ_7WJvcbNdvxlL1MjM51k2BHHHDi5Nod308BwtL1C10FoCEntDw2PAxyNR24gy0--zZw_MxYBy5eqGofl-qz8lPswhMR-nA0qrjWNtIwCWRHyxJw2RM56RnAoWZztont5H1p2gZmbKDMsKfBrSfFMrcHQI7oU3_N-yv2VlXsQqammTf1TlLd35ESx4QG_GVMbL95L0GiGe_A_0XRPr5v1Svog
 ```
 
 ## Endpoints documentation

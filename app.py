@@ -17,17 +17,6 @@ def create_app(test_config=None):
         return "This is the demo page of Casting Agency." \
             " Feel free to try each endpoint with different roles."
 
-    @app.route('/artists')
-    @requires_auth('view:artists')
-    def get_artists():
-        artists = [artist.attributes() for artist in Artist.query.order_by(Artist.id).all()]
-        return jsonify({
-            "success": True,
-            "status_code": 200,
-            "status_message": 'OK',
-            "artists": artists
-        })
-
     @app.after_request
     def after_request(response):
         response.headers.add(
@@ -39,6 +28,18 @@ def create_app(test_config=None):
             'GET, PUT, POST, DELETE, OPTIONS'
         )
         return response
+
+    # @app.route('/artists')
+    # @requires_auth('view:artists')
+    @app.route('/artists')
+    def get_artists():
+        artists = [artist.attributes() for artist in Artist.query.order_by(Artist.id).all()]
+        return jsonify({
+            "success": True,
+            "status_code": 200,
+            "status_message": 'OK',
+            "artists": artists
+        })    
 
     @app.route('/songs')
     @requires_auth('view:songs')
