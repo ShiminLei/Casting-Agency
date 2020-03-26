@@ -1,0 +1,275 @@
+{
+	"info": {
+		"_postman_id": "4056db62-cb0f-4e9f-9523-78d50527aed7",
+		"name": "castingagency",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "main",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}",
+					"host": [
+						"{{host}}"
+					]
+				},
+				"description": "main"
+			},
+			"response": []
+		},
+		{
+			"name": "get database URL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/database",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"database"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET '/songs'",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/songs",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"songs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET '/artists'",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/artists",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"artists"
+					]
+				},
+				"description": "`GET '/actors'`"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE '/movies/<int:movie_id>'",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/songs/8",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"songs",
+						"8"
+					]
+				},
+				"description": "DELETE '/movies/<int:movie_id>'"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE '/actors/<int:actor_id>'",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/artists/5",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"artists",
+						"5"
+					]
+				},
+				"description": "DELETE '/actors/<int:actor_id>'"
+			},
+			"response": []
+		},
+		{
+			"name": "POST '/songs'",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Water3\",\n    \"genre\": \"Blue\",\n    \"release_date\": \"Thu, 01 Aug 2002 00:00:00 GMT\"\n}"
+				},
+				"url": {
+					"raw": "{{host}}/songs",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"songs"
+					]
+				},
+				"description": "POST '/movies'"
+			},
+			"response": []
+		},
+		{
+			"name": "POST '/artists'",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"age\": 18,\n        \"gender\": \"other\",\n        \"id\": 4,\n        \"name\": \"Penny\"\n}"
+				},
+				"url": {
+					"raw": "{{host}}/artists",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"artists"
+					]
+				},
+				"description": "POST '/actors'"
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH '/songs/<int:movie_id>'",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Water3555\",\n    \"genre\": \"Jazz\",\n    \"release_date\": \"Thu, 01 Aug 2002 00:00:00 GMT\"\n}"
+				},
+				"url": {
+					"raw": "{{host}}/songs/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"songs",
+						"1"
+					]
+				},
+				"description": "PATCH '/movies/<int:movie_id>'"
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH '/actors/<int:actor_id>'",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"age\": 28,\n    \"gender\": \"other\",\n    \"name\": \"Penny\"\n}"
+				},
+				"url": {
+					"raw": "{{host}}/artists/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"artists",
+						"1"
+					]
+				},
+				"description": "PATCH '/actors/<int:actor_id>'"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik9VSTBPVUpHUTBNMU1qVkVRVUk1TWpCRU56bEZNekEwUkRCQ05qQTBNVEk1UVVZeU1UTXhOZyJ9.eyJpc3MiOiJodHRwczovL3NoaW1pbmxlaS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWU3YmJlNGYxNDA1ZGUwYzYzNmY1OGY2IiwiYXVkIjoiY2FzdGluZ0FnZW5jeSIsImlhdCI6MTU4NTE4MTQ3MCwiZXhwIjoxNTg1MTg4NjcwLCJhenAiOiJFM0hXd1dieHJzTzBDWjdFTnl2UVY4NFV5VTlwbThKZCIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiYWRkOmFydGlzdHMiLCJhZGQ6c29uZ3MiLCJkZWxldGU6YXJ0aXN0cyIsImRlbGV0ZTpzb25ncyIsImVkaXQ6YXJ0aXN0cyIsImVkaXQ6c29uZ3MiLCJ2aWV3OmFydGlzdHMiLCJ2aWV3OnNvbmdzIl19.M3AsV-ugOjWYGYZ1XmpH2Clx5p3CVFVTqUMWhccjXK5-yvYM49-StVE9WL4vdAqC-HIOf7dCv4UG3FGgWMIheyV2S1cuY8bN1ROJxAZcWyRwx-BDSsYmwSQx4S-XjZJ64gYKoXlP8LykHs0_1lJQAbzbKjFISpbY_LuBC5y2IntNoJ0fsz3iMHej9TqiRQlnupkNVfas3JOWG72bOzNWDy22QO1GYANUZJgMuDm4U_oLYQrilJlj4MYnppP2zGBEfsxlEP4VTkKizqfTss4XdFsVtCGYKhpmFICkQUo0E5agZh6lTtxTkMqI92z0E8DnFUwn80cH2WTBGjmhlpPDwA",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "c4d25c9c-a183-4c2a-ac8b-d93c4c345feb",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "2648c889-b505-458c-a340-9cb15aecd37d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "6106319c-5adb-461e-ae17-2e6add917255",
+			"key": "host",
+			"value": "https://casting-agency-capstone-shimin.herokuapp.com",
+			"type": "string"
+		},
+		{
+			"id": "c228f717-435e-4cb8-b341-ce02bdf08afb",
+			"key": "host-local",
+			"value": "http://localhost:5000",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
