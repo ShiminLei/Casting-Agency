@@ -67,17 +67,17 @@ Setting the `FLASK_ENV` variable to `development` will detect file changes and r
         - Enable RBAC
         - Enable Add Permissions in the Access Token
 5. Create new API permissions:
-    - `add:actors`
-    - `add:movies`
-    - `delete:actors`
-    - `delete:movies`
-    - `edit:actors`
-    - `edit:movies`
-    - `view:actors`
-    - `view:movies`
+    - `add:artists`
+    - `add:songs`
+    - `delete:artists`
+    - `delete:songs`
+    - `edit:artists`
+    - `edit:songs`
+    - `view:artists`
+    - `view:songs`
 6. Create new roles for:
     - Casting Assistant
-        - Can view actors and movies
+        - Can view artists and songs
     - Casting Manager
         - All permissions 
 7. Test your endpoints with [Postman](https://getpostman.com). 
@@ -104,34 +104,20 @@ https://shiminlei.auth0.com/authorize?audience=castingAgency&response_type=token
 
 ## Endpoints documentation
 
-#### `GET '/movies'`
-- Fetches a dictionary of movies
+#### `GET '/songs'`
+- Fetches a dictionary of songs
 - Required URL Arguments: None
 - Required Data Arguments: None
-- Returns: Returns Json data about movies 
+- Returns: Returns Json data about songs 
 - Success Response:
 ```
 {
-    "movies": [
+    "songs": [
         {
+            "gente": "Blue",
             "id": 1,
-            "release_date": "Sun, 01 Jan 2012 00:00:00 GMT",
-            "title": "Lion King"
-        },
-        {
-            "id": 2,
-            "release_date": "Mon, 12 Aug 2019 00:00:00 GMT",
-            "title": "Joker"
-        },
-        {
-            "id": 3,
-            "release_date": "Mon, 12 Dec 2011 00:00:00 GMT",
-            "title": "Frozen"
-        },
-        {
-            "id": 4,
-            "release_date": "Wed, 01 Aug 2012 00:00:00 GMT",
-            "title": "Yes Man"
+            "release_date": "Thu, 01 Aug 2002 00:00:00 GMT",
+            "title": "Water"
         }
     ],
     "status_code": 200,
@@ -140,31 +126,19 @@ https://shiminlei.auth0.com/authorize?audience=castingAgency&response_type=token
 }
 ```
 
-#### `GET '/actors'`
-- Fetches a dictionary of actors
+#### `GET '/artists'`
+- Fetches a dictionary of artists
 - Required Data Arguments: None
-- Returns: Json data about actors
+- Returns: Json data about artists
 - Success Response:
 ```
-  {
-    "actors": [
+{
+    "artists": [
         {
-            "age": 36,
-            "gender": "male",
-            "id": 1,
-            "name": "Edward"
-        },
-        {
-            "age": 25,
+            "age": 18,
             "gender": "other",
-            "id": 2,
-            "name": "David"
-        },
-        {
-            "age": 35,
-            "gender": "female",
-            "id": 3,
-            "name": "Jeff"
+            "id": 1,
+            "name": "Penny"
         }
     ],
     "status_code": 200,
@@ -173,11 +147,11 @@ https://shiminlei.auth0.com/authorize?audience=castingAgency&response_type=token
 }
 ```
 
-#### `DELETE '/movies/<int:movie_id>'`
-- Deletes the `movie_id` of movie
-- Required URL Arguments: `movie_id: movie_id_integer` 
+#### `DELETE '/songs/<int:song_id>'`
+- Deletes the `song_id` of song
+- Required URL Arguments: `song_id: song_id_integer` 
 - Required Data Arguments: None
-- Returns: Json data about the deleted movie's ID 
+- Returns: Json data about the deleted song's ID 
 - Success Response:
 ```
 {
@@ -188,11 +162,11 @@ https://shiminlei.auth0.com/authorize?audience=castingAgency&response_type=token
 }
 ```
 
-#### `DELETE '/actors/<int:actor_id>'`
-- Deletes the `actor_id` of actor
-- Required URL Arguments: `actor_id: actor_id_integer` 
+#### `DELETE '/artists/<int:artist_id>'`
+- Deletes the `artist_id` of artist
+- Required URL Arguments: `artist_id: artist_id_integer` 
 - Required Data Arguments: None
-- Returns: Json data about the deleted actor's ID 
+- Returns: Json data about the deleted artist's ID 
 - Success Response:
 ```
 {
@@ -204,17 +178,18 @@ https://shiminlei.auth0.com/authorize?audience=castingAgency&response_type=token
 ```
 
 
-#### `POST '/movies'`
-- Post a new movie in a database.
+#### `POST '/songs'`
+- Post a new song in a database.
 - Required URL Arguments: None 
 - Required Data Arguments:  Json data                
 - Success Response:
 ```
 {
-    "movie": {
+    "song": {
         "id": 6,
+        "genre": "Blue",
         "release_date": "Thu, 01 Aug 2002 00:00:00 GMT",
-        "title": "Toy Story"
+        "title": "Love Song"
     },
     "status_code": 200,
     "status_message": "OK",
@@ -222,19 +197,19 @@ https://shiminlei.auth0.com/authorize?audience=castingAgency&response_type=token
 }
 ```
 
-#### `POST '/actors'`
-- Post a new actor in a database.
+#### `POST '/artists'`
+- Post a new artist in a database.
 - Required URL Arguments: None 
 - Required Data Arguments:  Json data   
 
 - Success Response:
 ```
 {
-    "actor": {
+    "artist": {
         "age": 18,
-        "gender": "other",
+        "gender": "male",
         "id": 4,
-        "name": "Penny"
+        "name": "Mike"
     },
     "status_code": 200,
     "status_message": "OK",
@@ -243,18 +218,19 @@ https://shiminlei.auth0.com/authorize?audience=castingAgency&response_type=token
 ```
 
 
-#### `PATCH '/movies/<int:movie_id>'`
-- Updates the `movie_id` of movie
-- Required URL Arguments: `movie_id: movie_id_integer` 
+#### `PATCH '/songs/<int:song_id>'`
+- Updates the `song_id` of song
+- Required URL Arguments: `song_id: song_id_integer` 
 - Required Data Arguments: None
-- Returns: Json data about the updated movie 
+- Returns: Json data about the updated song 
 - Success Response:
 ```
 {
-    "movie": {
+    "song": {
         "id": 5,
+        "genre": "Blue",
         "release_date": "Wed, 05 Dec 2018 00:00:00 GMT",
-        "title": "Avenger"
+        "title": "Love Song"
     },
     "status_code": 200,
     "status_message": "OK",
@@ -262,15 +238,15 @@ https://shiminlei.auth0.com/authorize?audience=castingAgency&response_type=token
 }
 ```
 
-#### `PATCH '/actors/<int:actor_id>'`
-- Updates the `actor_id` of actor
-- Required URL Arguments: `actor_id: actor_id_integer` 
+#### `PATCH '/artists/<int:artist_id>'`
+- Updates the `artist_id` of artist
+- Required URL Arguments: `artist_id: artist_id_integer` 
 - Required Data Arguments: None
-- Returns: Json data about the deleted actor's ID 
+- Returns: Json data about the deleted artist's ID 
 - Success Response:
 ```
 {
-    "actor": {
+    "artist": {
         "age": 28,
         "gender": "other",
         "id": 4,
