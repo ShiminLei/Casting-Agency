@@ -81,7 +81,7 @@ Setting the `FLASK_ENV` variable to `development` will detect file changes and r
     - Casting Manager
         - All permissions 
 7. Test your endpoints with [Postman](https://getpostman.com). 
-    - Register 3 users - assign the Casting Assistant role to one    and Casting Director role to another, and Executive Producer   to the other.
+    - Register 2 users - assign the Assistant role to one and Manager role to another
     - Sign into each account and make note of the JWT.
     - Test each endpoint and correct any errors.
 
